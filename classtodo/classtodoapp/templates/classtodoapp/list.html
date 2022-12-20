@@ -1,0 +1,17 @@
+<a href="{% url 'create-list' %}">Create Todo</a>
+<ul>
+    <!-- Iterate over object_list -->
+    {% for object in object_list %}
+    <!-- Display Objects -->
+    <li>{{ object.title }}</li>
+    <li>{{ object.description }}</li>
+    <li><a href="{% url 'details' object.id %}">Detail</a></li>
+    <li><a href="{% url 'test-delete' object.id %}">Delete</a></li>
+
+ 
+    <hr/>
+    <!-- If object_list is empty  -->
+    {% empty %} 
+    <li>No objects yet.</li>
+    {% endfor %}
+</ul>
